@@ -14,7 +14,6 @@ router.get('/', async (req, res) => {
 
     return res.send({ projects });
   } catch (err) {
-    console.log(err);
     return res.status(400).send({ error: 'Error fetching projects' });
   }
 });
@@ -25,7 +24,6 @@ router.get('/:projectId', async (req, res) => {
 
     return res.send({ project });
   } catch (err) {
-    console.log(err);
     return res.status(400).send({ error: 'Error fetching project' });
   }
 });
@@ -77,7 +75,6 @@ router.put('/:projectId', async (req, res) => {
 
     return res.send({ project });
   } catch (err) {
-    console.log(err);
     return res.status(400).send({ error: 'Error updating project' });
   }
 });
@@ -88,9 +85,8 @@ router.delete('/:projectId', async (req, res) => {
 
     return res.send({ ok: true });
   } catch (err) {
-    console.log(err);
     return res.status(400).send({ error: 'Error deleting project' });
   }
 });
 
-module.exports = app => app.use('/projects', router);
+module.exports = router;
